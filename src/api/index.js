@@ -1,7 +1,6 @@
 import axios from 'axios'
 
 const instance = axios.create({
-	//baseURL: 'https://asp01-f4hvd6dccpbpawhr.koreacentral-01.azurewebsites.net',
 	baseURL: 'https://asp01-container-engthcgagzezhgbb.koreacentral-01.azurewebsites.net',
 })
 
