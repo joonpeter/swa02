@@ -16,6 +16,7 @@ module.exports = {
 
 // vue.config.js
 module.exports = {
+	  lintOnSave: false,//yjsohn
   transpileDependencies: ['vuetify'],
   chainWebpack: config => {
     config.plugin('html').tap(args => {
@@ -35,7 +36,6 @@ module.exports = {
       },
     },
   },
-}
 
 
 
