@@ -1,95 +1,105 @@
 import axios from 'axios'
 
+/**
+ * Axios 인스턴스 생성
+ * - AKS LoadBalancer IP 직접 호출
+ */
 const instance = axios.create({
-	//baseURL: 'https://asp01-container-engthcgagzezhgbb.koreacentral-01.azurewebsites.net/',
-	//baseURL: 'https://3tierasp02.azurewebsites.net',
-	baseURL: 'http://4.230.92.215',
+  baseURL: 'http://4.230.92.215',
+  headers: {
+    'Content-Type': 'application/json;charset=utf-8',
+  },
 })
-
-instance.defaults.headers.post['Content-Type'] =
-	'application/json;charset=utf-8'
-instance.defaults.headers.post['Access-Control-Allow-Origin'] = '*'
 
 /**
  * 게시글 목록 조회
- * @param {*} params
+ * GET /board/list
+ * 필수 params: rows, page, sort
  */
 function getBoardListAPI(params) {
-	return instance.get('/board/list', params)
+  return instance.get('/board/list', { params })
 }
 
 /**
  * 게시글 상세 조회
- * @param {*} params
+ * GET /board/detail
+ * params: docNo
  */
 function getBoardDetailAPI(params) {
-	return instance.get('/board/detail', params)
+  return instance.get('/board/detail', { params })
 }
 
 /**
  * 게시글 작성
- * @param {*} params
+ * POST /board/insert
+ * params: title, content
  */
 function insertBoardAPI(params) {
-	return instance.post('/board/insert', null, params)
+  return instance.post('/board/insert', null, { params })
 }
 
 /**
  * 게시글 수정
- * @param {*} params
+ * POST /board/update
+ * params: docNo, title, content
  */
 function updateBoardAPI(params) {
-	return instance.post('/board/update', null, params)
+  return instance.post('/board/update', null, { params })
 }
 
 /**
  * 게시글 삭제
- * @param {*} params
+ * POST /board/delete
+ * params: docNo
  */
 function deleteBoardAPI(params) {
-	return instance.post('/board/delete', null, params)
+  return instance.post('/board/delete', null, { params })
 }
 
 /**
  * 댓글 작성
- * @param {*} params
+ * POST /board/reply/insert
+ * params: docNo, comment
  */
 function insertReplyAPI(params) {
-	return instance.post('/board/reply/insert', null, params)
+  return instance.post('/board/reply/insert', null, { params })
 }
 
 /**
  * 댓글 조회
- * @param {*} params
+ * GET /board/reply/list
+ * params: docNo
  */
 function getReplyListAPI(params) {
-	return instance.get('/board/reply/list', params)
+  return instance.get('/board/reply/list', { params })
 }
 
 /**
  * 댓글 수정
- * @param {*} params
+ * POST /board/reply/update
+ * params: replyNo, docNo, comment
  */
 function updateReplyAPI(params) {
-	return instance.post('/board/reply/update', null, params)
+  return instance.post('/board/reply/update', null, { params })
 }
 
 /**
  * 댓글 삭제
- * @param {*} params
+ * POST /board/reply/delete
+ * params: replyNo, docNo
  */
 function deleteReplyAPI(params) {
-	return instance.post('/board/reply/delete', null, params)
+  return instance.post('/board/reply/delete', null, { params })
 }
 
 export {
-	getBoardListAPI,
-	getBoardDetailAPI,
-	insertBoardAPI,
-	updateBoardAPI,
-	deleteBoardAPI,
-	insertReplyAPI,
-	getReplyListAPI,
-	updateReplyAPI,
-	deleteReplyAPI,
+  getBoardListAPI,
+  getBoardDetailAPI,
+  insertBoardAPI,
+  updateBoardAPI,
+  deleteBoardAPI,
+  insertReplyAPI,
+  getReplyListAPI,
+  updateReplyAPI,
+  deleteReplyAPI,
 }
