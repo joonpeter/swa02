@@ -5,7 +5,7 @@ const instance = axios.create({
 	//baseURL: 'https://3tierasp02.azurewebsites.net',
 	//baseURL: 'http://4.230.92.215',
 	//baseURL: 'https://4.230.97.253',
-	baseURL: '3tasp01.azurewebsites.net',
+	baseURL: 'https://3tasp01.azurewebsites.net',
 })
 
 instance.defaults.headers.post['Content-Type'] =
