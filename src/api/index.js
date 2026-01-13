@@ -5,7 +5,8 @@ const instance = axios.create({
 	//baseURL: 'https://3tierasp02.azurewebsites.net',
 	//baseURL: 'http://4.230.92.215',
 	//baseURL: 'https://4.230.97.253',
-	baseURL: 'https://3tasp01.azurewebsites.net',
+	//baseURL: 'https://3tasp01.azurewebsites.net', <-- Web App 을 통한 연결 (과제 3-2)
+	baseURL: http://20.249.153.0,
 })
 
 instance.defaults.headers.post['Content-Type'] =
